@@ -33,9 +33,9 @@ El ejemplo más obvio es el sonido: cuando escuchamos un sonido, no escuchamos e
 
 <button id="together-button" class="button">Escuchar Onda Completa</button>
 
-<button id="split-button-1" class="button">Escuchar Alta Frecuencia</button>
+<button id="split-button-1" class="button">Escuchar Frecuencia Alta</button>
 
-<button id="split-button-2" class="button">Escuchar Baja Frecuencia</button>
+<button id="split-button-2" class="button">Escuchar Frecuencia Baja</button>
 
 Al dividirlos en una computadora podemos tener una idea de lo que una persona realmente escucha. Podemos entender qué tan alto o bajo es un sonido, o averiguar qué nota es.
 
@@ -49,7 +49,7 @@ Puede que no lo parezca, pero también se puede dividir en ondas sinusoidales.
 
 <canvas id="square-wave-split" class="sketch" width=500 height=500></canvas>
 
-Necesitamos muchos de ellas esta vez, técnicamente una cantidad infinita para representarlos perfectamente. A medida que sumamos más y más ondas sinusoidales, el patrón se acerca cada vez más a la onda cuadrada con la que comenzamos.
+Necesitamos muchas de estas esta vez, técnicamente una cantidad infinita para representarla perfectamente. A medida que sumamos más y más ondas sinusoidales, el patrón se acerca cada vez más a la onda cuadrada con la que comenzamos.
 
 <canvas id="square-wave-build-up" class="sketch" width=500 height=500></canvas>
 <input id="square-wave-build-up-slider" type="range" min="0" max="1" value="0" step="any" >
@@ -58,11 +58,11 @@ Necesitamos muchos de ellas esta vez, técnicamente una cantidad infinita para r
 
 *Arrastra el control deslizante de arriba para jugar con la cantidad de ondas sinusoidales que hay.*
 
-Visualmente, notarás que en realidad las primeras ondas sinusoidales son las que hacen la mayor diferencia. Con el deslizador a la mitad, tenemos la forma general de la onda, pero todo es ondulado. Solo necesitamos el resto de los pequeños para que la ondulación se aplane.
+Visualmente, notarás que en realidad las primeras ondas sinusoidales son las que hacen la mayor diferencia. Con el deslizador a la mitad, tenemos la forma general de la onda, pero todo es ondulado. Solo necesitamos el resto de las pequeñas para que la ondulación se aplane.
 
-Cuando escuchas la onda, escucharás que el sonido disminuye, porque estamos eliminando las frecuencias más altas.
+Cuando escuches la onda, escucharás que el sonido disminuye, porque estamos eliminando las frecuencias más altas.
 
-Este proceso funciona así para cualquier línea que se repite. ¡Pruébalo, intenta dibujar el tuyo!
+Este proceso funciona así para cualquier línea que se repite. ¡Pruébalo, intenta dibujar la tuya!
 
 <div class="multi-container">
 <div class="sketch" >
@@ -76,7 +76,7 @@ Este proceso funciona así para cualquier línea que se repite. ¡Pruébalo, int
 
 *Mueve el control deslizante para ver cómo a medida que agregamos ondas sinusoidales, se acerca más y más al dibujo que has hecho.*
 
-Una vez más, aparte de la extravagancia extra, la onda se ve bastante similar con solo la mitad de las ondas sinusoidales.
+Una vez más, aparte de la ondulación extra, la onda se ve bastante similar con solo la mitad de las ondas sinusoidales.
 
 Podemos usar el hecho de que la onda es bastante similar a nuestra ventaja. Al usar una transformada de Fourier, podemos obtener las partes importantes de un sonido, y solo almacenarlas para terminar con algo que está muy cerca del sonido original.
 
@@ -84,7 +84,7 @@ Normalmente en una computadora almacenamos una onda como una serie de puntos.
 
 <canvas id="wave-samples" class="sketch" width=500 height=500></canvas>
 
-Lo que podemos hacer en cambio es representarlo como un grupo de ondas sinusoidales. Luego podemos comprimir el sonido ignorando las frecuencias más pequeñas. Nuestro resultado final no será el mismo, pero suena bastante similar a una persona.
+Lo que podemos hacer en cambio es representarla como un grupo de ondas sinusoidales. Luego podemos comprimir el sonido ignorando las frecuencias más pequeñas. Nuestro resultado final no será el mismo, pero sonará bastante similar a una persona.
 
 <canvas id="wave-frequencies" class="sketch" width=500 height=500></canvas>
 
@@ -96,11 +96,11 @@ Ok, ahora vamos a profundizar más en la transformada de Fourier. La siguiente p
 
 ## Epiciclos
 
-Ahora, al principio mencioné que la transformada de Fourier divide cosas en ondas sinusoidales. El detalle aquí es que las ondas sinusoidales que crea no son solo ondas sinusoidales regulares, sino que están en 3D. Podrías llamarlos "sinusoides complejos". O simplemente "espirales".
+Ahora, al principio mencioné que la transformada de Fourier divide cosas en ondas sinusoidales. El detalle aquí es que las ondas sinusoidales que crea no son solo ondas sinusoidales regulares, sino que están en 3D. Podrías llamarlas "sinusoides complejos". O simplemente "espirales".
 
 <canvas id="complex-sinusoid" class="sketch" width=500 height=500></canvas>
 
-Si echamos un vistazo lateralmente, se ven como ondas sinusoidales. Desde el frente, sin embargo, estos parecen círculos.
+Si echamos un vistazo lateralmente, se ven como ondas sinusoidales. Desde el frente, sin embargo, estas parecen círculos.
 
 <canvas id="complex-sinusoid-turn" class="sketch" width=500 height=500></canvas>
 
@@ -112,13 +112,13 @@ Pero podemos usar las ondas sinusoidales en tres dimensiones (3D) para hacer que
 
 ¿Qué está pasando aqui?
 
-Bueno, podemos pensar en el dibujo como una forma 3D debido a la forma en que se mueve en el tiempo. Si imaginas la mano que dibuja una persona, las tres dimensiones representan donde está la punta de su lápiz en ese momento. Las dimensiones x e y nos dicen la posición, y luego la dimensión de tiempo es el tiempo en ese momento.
+Bueno, podemos pensar en el dibujo como una forma 3D debido a la forma en que se mueve en el tiempo. Si imaginas la mano que dibuja una persona, las tres dimensiones representan donde está la punta de su lápiz en ese momento. Las dimensiones x y y nos dicen la posición, y luego la dimensión de tiempo es el tiempo en ese momento.
 
 <canvas id="peace-3d" class="sketch" width=500 height=500></canvas>
 
 Ahora que tenemos un patrón en 3D, no podemos usar las ondas sinusoidales 2D regulares para representarlo. No importa la cantidad de ondas sinusoidales 2D que sumemos, nunca obtendremos algo en 3D. Así que necesitamos algo más.
 
-Lo que podemos usar es las ondas sinusoidales en espiral 3D de antes. Si sumamos muchos de ellos, podemos obtener algo que se parece a nuestro patrón en 3D.
+Lo que podemos usar es las ondas sinusoidales en espiral 3D de antes. Si sumamos muchas de ellas, podemos obtener algo que se parece a nuestro patrón en 3D.
 
 Recuerda, estas ondas parecen círculos cuando las miramos de frente. El nombre del patrón de un círculo que se mueve alrededor de otro círculo es un epiciclo.
 
@@ -129,7 +129,7 @@ Recuerda, estas ondas parecen círculos cuando las miramos de frente. El nombre 
 
 Como antes, obtenemos una buena aproximación de nuestro patrón con solo unos pocos círculos. Debido a que esta es una forma bastante simple, todo lo que hacen los últimos es hacer los bordes un poco más detallados.
 
-¡En realidad, todo esto se aplica a cualquier dibujo! Ahora es tu oportunidad de jugar con él.
+¡En realidad, todo esto se aplica a cualquier dibujo! Ahora es tu oportunidad de jugar con esto.
 
 <div class="multi-container">
 <div class="sketch" >
@@ -145,7 +145,7 @@ Como antes, obtenemos una buena aproximación de nuestro patrón con solo unos p
 
 Una vez más, verás que para la mayoría de las curvas, podemos aproximarlas bastante bien con solo un pequeño número de círculos, en lugar de guardar todos los puntos.
 
-¿Podemos usar esto para datos reales? ¡Bueno, podríamos! En realidad, tenemos otro formato de datos llamado SVG, que probablemente hace un mejor trabajo para los tipos de formas que tendemos a crear. Así que por el momento, esto es solo para hacer gifs muy interesantes y divertidos.
+¿Podemos usar esto para datos reales? ¡Bueno, podríamos! En realidad, tenemos otro formato de datos llamado SVG, que probablemente hace un mejor trabajo para los tipos de formas que tendemos a crear. Así que por el momento, esto sirve solo para hacer gifs muy interesantes y divertidos.
 
 <canvas id="fourier-title" class="sketch" width=500 height=300></canvas>
 
@@ -153,21 +153,21 @@ Sin embargo, hay otro tipo de datos visuales que utiliza transformadas de Fourie
 
 ## JPEGs
 
-¿Sabías que las transformadas de Fourier también se pueden usar en imágenes? De hecho, lo usamos todo el tiempo, porque así es como funcionan los JPEG. Estamos aplicando los mismos principios a las imágenes: dividimos algo en un montón de ondas sinusoidales y luego solo almacenamos las importantes.
+¿Sabías que las transformadas de Fourier también se pueden usar en imágenes? De hecho, las usamos todo el tiempo, porque así es como funcionan los JPEGs. Estamos aplicando los mismos principios a las imágenes: dividimos algo en un montón de ondas sinusoidales y luego solo almacenamos las importantes.
 
 Ahora estamos tratando con imágenes, necesitamos un tipo diferente de onda sinusoidal. Necesitamos tener algo que no importa qué imagen tengamos, podemos sumar un montón de estas ondas sinusoidales para volver a nuestra imagen original.
 
 Para hacer eso, cada una de nuestras ondas sinusoidales también serán imágenes. En lugar de una onda que es una línea, ahora tenemos imágenes con secciones en blanco y negro. Para representar el tamaño de una onda, cada imagen tendrá más o menos contraste.
 
-También podemos usarlos para representar el color de la misma manera, pero comencemos con las imágenes en blanco y negro por ahora. Para representar imágenes incoloras, necesitamos algunas imágenes de onda horizontal,
+También podemos usarlas para representar el color de la misma manera, pero comencemos con las imágenes en blanco y negro por ahora. Para representar imágenes sin color, necesitamos algunas imágenes de ondas horizontales,
 
 <img id="img-y-component" src="img/components-4-0.png" class="sketch sketch-small">
 
-Junto con algunas imágenes de onda vertical.
+Junto con algunas imágenes de ondas verticales.
 
 <img id="img-x-component" src="img/components-0-4.png" class="sketch sketch-small">
 
-Por sí mismas, solo las imágenes horizontales y verticales no son suficientes para representar los tipos de imágenes que obtenemos. También necesitamos algunos adicionales que se obtienen al multiplicar los dos juntos.
+Por sí mismas, las imágenes horizontales y verticales no son suficientes para representar los tipos de imágenes que obtenemos. También necesitamos algunos adicionales que se obtienen al multiplicar las dos juntas.
 
 <div class="multi-container">
     <img id="img-mult-x-component" src="img/components-0-4.png" class="sketch sketch-mult">
@@ -248,11 +248,11 @@ Para una imagen de 8x8, aquí están todas las imágenes que necesitamos.
 
 Si tomamos las imágenes, ajustamos su contraste a la cantidad correcta y luego las sumamos para crear cualquier imagen.
 
-Comencemos con esta letra 'A'. Es bastante pequeño, pero necesitamos que sea pequeño, de lo contrario terminaremos con demasiadas otras imágenes.
+Comencemos con esta letra 'A'. Es bastante pequeña, pero necesitamos que sea pequeña, de lo contrario terminaremos con demasiadas imágenes.
 
 <img src="img/a.png" class="sketch sketch-letter">
 
-A medida que agregamos más y más de estas imágenes, terminamos con algo que se acerca cada vez más a la imagen real. Pero creo que verás el patrón aquí, ya que obtenemos una aproximación razonable con solo algunos de ellos.
+A medida que agregamos más y más de estas imágenes, terminamos con algo que se acerca cada vez más a la imagen real. Pero creo que verás el patrón aquí, ya que obtenemos una aproximación razonable con solo algunas de ellas.
 
 <div class="hidden-preload">
     <img src="img/img-buildup-0-0.png">
@@ -394,7 +394,7 @@ Para imágenes JPEG reales hay solo algunos detalles adicionales.
 
 La imagen se divide en partes de 8x8, y cada parte se divide por separado. Utilizamos un conjunto de frecuencias para determinar qué tan claro u oscuro es cada píxel, y luego otros dos conjuntos para el color, uno para rojo-verde y otro para azul-amarillo. La cantidad de frecuencias que usamos para cada fragmento determina la calidad del JPEG.
 
-Aquí hay una imagen JPEG real, ampliada para que podamos ver los detalles. Cuando jugamos con los niveles de calidad podemos ver que este proceso sucede.
+Aquí hay una imagen JPEG real, amplificada para que podamos ver los detalles. Cuando jugamos con los niveles de calidad podemos ver cómo este proceso sucede.
 
 <div id="jpeg-example" class="sketch">
  <img src="img/cat.png" class="sketch-child clear-pixels">
@@ -402,11 +402,11 @@ Aquí hay una imagen JPEG real, ampliada para que podamos ver los detalles. Cuan
 
 ## Conclusión
 
-Así que vamos a recapitular:
+Así que recapitulamos:
 
 - Las transformadas de Fourier son cosas que nos permiten tomar algo y dividirlo en sus frecuencias.
-- Las frecuencias nos informan sobre algunas propiedades fundamentales de los datos que tenemos
-- Y puede comprimir datos solo almacenando las frecuencias importantes
+- Las frecuencias nos informan sobre algunas propiedades fundamentales de los datos que tenemos.
+- Y puede comprimir datos almacenando solo las frecuencias importantes.
 - Y también podemos usarlas para crear animaciones con un montón de círculos.
 
 Estas son solo algunas de las aplicaciones. La transformada de Fourier es una herramienta extremadamente poderosa, porque dividir las cosas en frecuencias es fundamental. Se utilizan en muchos campos, incluidos el diseño de circuitos, las señales de los teléfonos móviles, la resonancia magnética (MRI) y la física cuántica.
@@ -440,8 +440,8 @@ Y, por supuesto, el artículo de Wikipedia también es bastante bueno.
 
 <canvas id="its-meee" class="sketch" width=500 height=500></canvas>
 
-¡Soy Jez! Trabajo tiempo completo en una [empresa de búsqueda](https://www.google.com/) en el Bay Area, y en mi tiempo libre me gusta hacer juegos y códigos interactivos como este.
+¡Soy Jez! Trabajo de tiempo completo en una [empresa de búsqueda](https://www.google.com/) en el Bay Area, y en mi tiempo libre me gusta hacer juegos y códigos interactivos como este.
 
 ¡Esta página web es de código abierto, puedes consultar el código en [GitHub](https://github.com/Jezzamonn/fourier)! Si tienes algún comentario o deseas hacer alguna pregunta, no dudes en enviarme un correo electrónico a <span id="email-text">fourier [at] jezzamon [dot] com</span> o envíame un tweet en [Twitter](https://twitter.com/jezzamonn).
 
-¡Si quieres ver más de mi trabajo, visita mi [homepage](/), y si quieres ver qué hago a continuación, puedes seguir mi cuenta de Twitter, [@jezzamonn](https://twitter.com/jezzamonn)!
+Si quieres ver más de mi trabajo, ¡visita mi [homepage](/)!, y si quieres ver qué hago a continuación, ¡puedes seguir mi cuenta de Twitter, [@jezzamonn](https://twitter.com/jezzamonn)!
